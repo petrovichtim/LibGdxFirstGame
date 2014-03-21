@@ -36,6 +36,7 @@ public class Torch {
 		animation = new Animation(1f, frames);
 		stateTime = 0f;
 		curFrame = animation.getKeyFrame(0);
+		//Test dingen
 	}
 
 	public void update() {
