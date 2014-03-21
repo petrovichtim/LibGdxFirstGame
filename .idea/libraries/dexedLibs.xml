@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="dexedLibs">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Hunt-android/bin/dexedLibs/gdx-backend-android-0ee6a1a96cf395740102313a7e94ea33.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Hunt-android/bin/dexedLibs/tween-engine-api-bb426d0c4d80f47b603cd6ace585371f.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Hunt-android/bin/dexedLibs/annotations-a64ce16792cf662f0b0913abd56953c2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Hunt-android/bin/dexedLibs/tween-engine-api-d390303cfa24bd27a52a1d2a03a7d448.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Hunt-android/bin/dexedLibs/gdx-backend-android-797d928567e3e6622049a1a236996ccf.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Hunt-android/bin/dexedLibs/gdx-backend-android-sources-609a5844e233f12d447d3db4c34cf8ec.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Hunt-android/bin/dexedLibs/gdx-backend-android-sources-135dd7ad707ada3634dcfd95aed3c5b4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Hunt-android/bin/dexedLibs/annotations-964df4fc4f26fd65c1e769ca972fce66.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Hunt-android/bin/dexedLibs/gdx-e4d2d6913d7c20377d570de0b4a65b10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Hunt-android/bin/dexedLibs/gdx-e04b6fda63dcef6fbb7613da78c1ba39.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

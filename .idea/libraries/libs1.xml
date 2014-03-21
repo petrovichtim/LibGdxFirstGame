@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="libs1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Hunt/libs/gdx-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Hunt/libs/tween-engine-api-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Hunt/libs/gdx.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Hunt/libs/tween-engine-api.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
