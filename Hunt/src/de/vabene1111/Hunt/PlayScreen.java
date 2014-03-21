@@ -15,7 +15,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -60,7 +59,7 @@ public class PlayScreen implements Screen {
 	public void show() {
 		batch = new SpriteBatch();
 		mBatch = new SpriteBatch();
-
+		
 		camera = new OrthographicCamera();
 		camera.setToOrtho(true, Gdx.graphics.getWidth(),
 				Gdx.graphics.getHeight());
@@ -109,8 +108,8 @@ public class PlayScreen implements Screen {
 		buttonStyle.font = cFont;
 
 		button = new TextButton("Quit", buttonStyle);
-		
-		button.setWidth( Gdx.graphics.getWidth() / 9);
+
+		button.setWidth(Gdx.graphics.getWidth() / 9);
 		button.setHeight(Gdx.graphics.getHeight() / 12);
 
 		stage.addActor(button);

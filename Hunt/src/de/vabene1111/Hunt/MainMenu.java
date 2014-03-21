@@ -19,7 +19,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 
 public class MainMenu implements Screen {
 
-	SpriteBatch batch;
+	SpriteBatch batch, mBatch;
+	
+	Torch torch;
 
 	BitmapFont cFont;
 	Stage stage;
@@ -50,6 +52,9 @@ public class MainMenu implements Screen {
 	public void show() {
 
 		batch = new SpriteBatch();
+		mBatch = new SpriteBatch();
+		
+		torch = new Torch();
 
 		// STAGE
 		stage = new Stage();
@@ -109,10 +114,16 @@ public class MainMenu implements Screen {
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 
 		stage.act();
+		torch.update();
 
 		batch.begin();
 		stage.draw();
 		batch.end();
+		
+		mBatch.begin();
+		torch.draw(mBatch);
+		mBatch.end();
+		
 
 	}
 
