@@ -53,7 +53,7 @@ public class Torch {
 
 	public void draw(SpriteBatch batch) {
 
-		batch.draw(curFrame, 300, 300);
+		batch.draw(curFrame, 300, 300, curFrame.getRegionHeight() * 2, curFrame.getRegionWidth() * 2);
 	}
 
 }
