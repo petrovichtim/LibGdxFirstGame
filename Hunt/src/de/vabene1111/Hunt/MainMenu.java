@@ -64,7 +64,7 @@ public class MainMenu implements Screen {
 		style = new LabelStyle(cFont, Color.GREEN);
 		styleRed = new LabelStyle(cFont, Color.RED);
 
-		label = new Label("Hunter-v1.2 by vabene1111 ", style);
+		label = new Label("Hunter-v1.1 by vabene1111 ", style);
 		label.setPosition(50, Gdx.graphics.getHeight() - 50);
 
 		stage.addActor(label);
