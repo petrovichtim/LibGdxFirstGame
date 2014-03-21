@@ -30,7 +30,7 @@ public class MainMenu implements Screen {
 
 	TextureAtlas buttonAtlas;
 	TextButtonStyle buttonStyle;
-	TextButton button;
+	TextButton buttonPlay, buttonGit;
 	Skin skin;
 
 	int score;
@@ -92,16 +92,31 @@ public class MainMenu implements Screen {
 		buttonStyle.down = skin.getDrawable("buttonpressed");
 		buttonStyle.font = cFont;
 
-		button = new TextButton("vabene is awesome", buttonStyle);
-
-		stage.addActor(button);
+		buttonPlay = new TextButton("vabene is awesome", buttonStyle);
+		buttonGit = new TextButton("GitHub", buttonStyle);
+		buttonGit.setPosition(300, 1);
+		stage.addActor(buttonGit);
+		stage.addActor(buttonPlay);
+	
+		
+		
+		
 		Gdx.input.setInputProcessor(stage);
 
-		button.addListener(new InputListener() {
+		buttonPlay.addListener(new InputListener() {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y,
 					int pointer, int button) {
 				game.setScreen(new PlayScreen(game));
+				return true;
+			}
+		});
+		
+		buttonGit.addListener(new InputListener() {
+			@Override
+			public boolean touchDown(InputEvent event, float x, float y,
+					int pointer, int button) {
+				Gdx.net.openURI("https://github.com/vabene1111/LibGdxFirstGame");
 				return true;
 			}
 		});
