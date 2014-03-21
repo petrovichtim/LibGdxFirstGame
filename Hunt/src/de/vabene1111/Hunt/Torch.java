@@ -43,10 +43,8 @@ public class Torch {
 
 		if (stateTime < 6) {
 			stateTime += Gdx.graphics.getDeltaTime();
-			System.out.println("plus delta time" +  stateTime);
 		} else {
 			stateTime = 0;
-			System.out.println("set to 0");
 		}
 
 		curFrame = animation.getKeyFrame(stateTime);
