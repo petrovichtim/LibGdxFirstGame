@@ -59,7 +59,7 @@ public class PlayScreen implements Screen {
 	public void show() {
 		batch = new SpriteBatch();
 		mBatch = new SpriteBatch();
-		
+
 		camera = new OrthographicCamera();
 		camera.setToOrtho(true, Gdx.graphics.getWidth(),
 				Gdx.graphics.getHeight());
@@ -163,12 +163,12 @@ public class PlayScreen implements Screen {
 		enemyIterator = enemy.iterator();
 		while (enemyIterator.hasNext()) {
 			Ai cur = enemyIterator.next();
-
-//			cur.draw(batch);
+			
+			cur.draw(batch);
 			cur.update();
 			// COLISON
 			if (player.getPlayer().overlaps(cur.getPos())) {
-//				game.setScreen(new MainMenu(game, score));
+				game.setScreen(new MainMenu(game, score));
 			}
 
 		}
