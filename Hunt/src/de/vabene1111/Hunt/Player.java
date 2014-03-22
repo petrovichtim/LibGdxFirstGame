@@ -55,13 +55,14 @@ public class Player {
 		player.y = player.y + player.getHeight() / 2;
 
 		// Determine's state time for animation
-		if (stateTime < 4) {
+		if (stateTime < 0.9f) {
 			stateTime += Gdx.graphics.getDeltaTime();
 		} else {
-			stateTime = 0;
+			stateTime = 0f;
 		}
 
 		// sets new Position
+		System.out.println(stateTime);
 		move(determineDirection(tx, ty));
 
 		// sets position back to top left hand corner
@@ -80,32 +81,32 @@ public class Player {
 	public void move(int d) {
 		switch (d) {// TODO 2* for side move
 		case 11:
-			player.x -= 1;
-			player.y -= 1;
+			player.x -= 1f;
+			player.y -= 1f;
 			return;
 		case 9:
-			player.x -= 1;
+			player.x -= 1f;
 			return;
 		case 7:
-			player.x -= 1;
-			player.y += 1;
+			player.x -= 1f;
+			player.y += 1f;
 			return;
 		case 6:
-			player.y += 1;
+			player.y += 1f;
 			return;
 		case 5:
-			player.x += 1;
-			player.y += 1;
+			player.x += 1f;
+			player.y += 1f;
 			return;
 		case 3:
-			player.x += 1;
+			player.x += 1f;
 			return;
 		case 1:
-			player.x += 1;
-			player.y -= 1;
+			player.x += 1f;
+			player.y -= 1f;
 			return;
 		case 0:
-			player.y -= 1;
+			player.y -= 1f;
 		}
 	}
 
@@ -116,14 +117,18 @@ public class Player {
 
 		// if west of player
 		if (tx < player.x) {
+			
 			p.y = player.y - (player.x - tx);
 			q.y = player.y + (player.x - tx);
 
 			if (ty < p.y && tx < player.x - (player.width/2)) {
+				curFrame = animation.getKeyFrame(3 + stateTime);
 				return 11;
 			} else if (ty > p.y && ty < q.y) {
+				curFrame = animation.getKeyFrame(1 + stateTime);
 				return 9;// TODO split in 3 regions
 			} else if (ty > q.y && tx < player.x - (player.width/2)) {
+				curFrame = animation.getKeyFrame(0 + stateTime);
 				return 7;
 			}
 		}
@@ -134,24 +139,31 @@ public class Player {
 			q.y = player.y + (tx - player.x);
 
 			if (ty < p.y && tx > player.x + (player.width / 2)) {
+				curFrame = animation.getKeyFrame(3 + stateTime);
 				return 1;
 			} else if (ty > p.y && ty < q.y) {
+				curFrame = animation.getKeyFrame(2 + stateTime);
 				return 3;// TODO split in 3 regions
 			} else if (ty > q.y && tx > player.x + (player.width / 2)) {
+				curFrame = animation.getKeyFrame(0 + stateTime);
 				return 5;
 			}
 		}
 		
-		//if south or east
+		//if south or north
 		if(ty > player.y){
+			curFrame = animation.getKeyFrame(0 + stateTime);
 			return 6;
 		} else if(ty < player.y){
+			curFrame = animation.getKeyFrame(3 + stateTime);
 			return 0;
 		}
 
 		return 12;
 	}
-
+	
+	
+	//!!!!!DEPRECATED!!!!!
 	public void determinePos(int tx, int ty) {
 
 		player.height = 64;
