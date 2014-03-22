@@ -92,7 +92,7 @@ public class MainMenu implements Screen {
 		buttonStyle.down = skin.getDrawable("buttonpressed");
 		buttonStyle.font = cFont;
 
-		buttonPlay = new TextButton("vabene is awesome", buttonStyle);
+		buttonPlay = new TextButton("PLAY - may take a while", buttonStyle);
 		buttonGit = new TextButton("GitHub", buttonStyle);
 		buttonGit.setPosition(300, 1);
 		stage.addActor(buttonGit);
