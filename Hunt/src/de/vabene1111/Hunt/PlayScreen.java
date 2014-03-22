@@ -130,17 +130,18 @@ public class PlayScreen implements Screen {
 		});
 
 		tiles = new ArrayList<BackgroundTile>();
-		int tileSize = 100;
-		for (int i = 0; i < Gdx.graphics.getWidth()/25; i++) {
-			for (int j = 0; j < Gdx.graphics.getHeight()/25; j++) {
+		int tileSizeX = Gdx.graphics.getWidth() / 11;
+		int tileSizeY = Gdx.graphics.getHeight() / 8;
+		for (int i = 0; i < Gdx.graphics.getWidth()/tileSizeX; i++) {
+			for (int j = 0; j < Gdx.graphics.getHeight()/tileSizeY; j++) {
 				int R = (int) ((Math.random() * (2 - 0) + 0));
 				if (R == 0) {
-					tiles.add(new BackgroundTile(new Texture("grass.png"), i * tileSize,
-							j * tileSize, tileSize, tileSize));
+					tiles.add(new BackgroundTile(new Texture("grass.png"), i * tileSizeX,
+							j * tileSizeY, tileSizeX, tileSizeY));
 				}
 				if (R == 1) {
-					tiles.add(new BackgroundTile(new Texture("gravel.png"), i * tileSize, j * tileSize,
-							tileSize, tileSize));
+					tiles.add(new BackgroundTile(new Texture("gravel.png"), i * tileSizeX, j * tileSizeY,
+							tileSizeX, tileSizeY));
 				}
 			}
 		}

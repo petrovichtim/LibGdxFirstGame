@@ -9,7 +9,7 @@ public class Main {
 		cfg.title = "Hunt";
 		cfg.useGL20 = true;
 		cfg.width = 1080;
-		cfg.height = 720;
+		cfg.height = 700;
 		
 		new LwjglApplication(new MyGdxGame(), cfg);
 	}
