@@ -164,11 +164,11 @@ public class PlayScreen implements Screen {
 		while (enemyIterator.hasNext()) {
 			Ai cur = enemyIterator.next();
 
-			cur.draw(batch);
+//			cur.draw(batch);
 			cur.update();
 			// COLISON
 			if (player.getPlayer().overlaps(cur.getPos())) {
-				game.setScreen(new MainMenu(game, score));
+//				game.setScreen(new MainMenu(game, score));
 			}
 
 		}

@@ -1,12 +1,12 @@
 package de.vabene1111.Hunt;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
 
 public class Player {
 
@@ -50,13 +50,23 @@ public class Player {
 
 	public void update(int tx, int ty) {
 
+		// sets position to center of texture
+		player.x = player.x + player.getWidth() / 2;
+		player.y = player.y + player.getHeight() / 2;
+
+		// Determine's state time for animation
 		if (stateTime < 4) {
 			stateTime += Gdx.graphics.getDeltaTime();
 		} else {
 			stateTime = 0;
 		}
 
-		determinePos(tx, ty);
+		// sets new Position
+		move(determineDirection(tx, ty));
+
+		// sets position back to top left hand corner
+		player.x = player.x - player.getWidth() / 2;
+		player.y = player.y - player.getHeight() / 2;
 
 	}
 
@@ -65,6 +75,81 @@ public class Player {
 			curFrame.flip(false, true);
 		}
 		batch.draw(curFrame, player.x, player.y);
+	}
+
+	public void move(int d) {
+		switch (d) {// TODO 2* for side move
+		case 11:
+			player.x -= 1;
+			player.y -= 1;
+			return;
+		case 9:
+			player.x -= 1;
+			return;
+		case 7:
+			player.x -= 1;
+			player.y += 1;
+			return;
+		case 6:
+			player.y += 1;
+			return;
+		case 5:
+			player.x += 1;
+			player.y += 1;
+			return;
+		case 3:
+			player.x += 1;
+			return;
+		case 1:
+			player.x += 1;
+			player.y -= 1;
+			return;
+		case 0:
+			player.y -= 1;
+		}
+	}
+
+	public int determineDirection(int tx, int ty) {
+		Vector2 p, q;
+		p = new Vector2(0, 0);
+		q = new Vector2(0, 0);
+
+		// if west of player
+		if (tx < player.x) {
+			p.y = player.y - (player.x - tx);
+			q.y = player.y + (player.x - tx);
+
+			if (ty < p.y && tx < player.x - (player.width/2)) {
+				return 11;
+			} else if (ty > p.y && ty < q.y) {
+				return 9;// TODO split in 3 regions
+			} else if (ty > q.y && tx < player.x - (player.width/2)) {
+				return 7;
+			}
+		}
+
+		// if east of player
+		if (tx > player.x) {
+			p.y = player.y - (tx - player.x);
+			q.y = player.y + (tx - player.x);
+
+			if (ty < p.y && tx > player.x + (player.width / 2)) {
+				return 1;
+			} else if (ty > p.y && ty < q.y) {
+				return 3;// TODO split in 3 regions
+			} else if (ty > q.y && tx > player.x + (player.width / 2)) {
+				return 5;
+			}
+		}
+		
+		//if south or east
+		if(ty > player.y){
+			return 6;
+		} else if(ty < player.y){
+			return 0;
+		}
+
+		return 12;
 	}
 
 	public void determinePos(int tx, int ty) {
