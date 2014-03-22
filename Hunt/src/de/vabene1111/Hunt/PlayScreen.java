@@ -33,8 +33,13 @@ public class PlayScreen implements Screen {
 	Rectangle hunter, coin;
 	OrthographicCamera camera;
 	Player player;
+
 	ArrayList<Ai> enemy;
 	Iterator<Ai> enemyIterator;
+
+	ArrayList<BackgroundTile> tiles;
+	Iterator<BackgroundTile> tileIterator;
+
 	int i;
 	int score;
 
@@ -59,7 +64,7 @@ public class PlayScreen implements Screen {
 	public void show() {
 		batch = new SpriteBatch();
 		mBatch = new SpriteBatch();
-		
+
 		camera = new OrthographicCamera();
 		camera.setToOrtho(true, Gdx.graphics.getWidth(),
 				Gdx.graphics.getHeight());
@@ -124,6 +129,22 @@ public class PlayScreen implements Screen {
 			}
 		});
 
+		tiles = new ArrayList<BackgroundTile>();
+		int tileSize = 100;
+		for (int i = 0; i < Gdx.graphics.getWidth()/25; i++) {
+			for (int j = 0; j < Gdx.graphics.getHeight()/25; j++) {
+				int R = (int) ((Math.random() * (2 - 0) + 0));
+				if (R == 0) {
+					tiles.add(new BackgroundTile(new Texture("grass.png"), i * tileSize,
+							j * tileSize, tileSize, tileSize));
+				}
+				if (R == 1) {
+					tiles.add(new BackgroundTile(new Texture("gravel.png"), i * tileSize, j * tileSize,
+							tileSize, tileSize));
+				}
+			}
+		}
+
 	}
 
 	@Override
@@ -140,6 +161,13 @@ public class PlayScreen implements Screen {
 		}
 
 		batch.begin();
+		
+		tileIterator = tiles.iterator();
+		while (tileIterator.hasNext()) {
+			BackgroundTile cur = tileIterator.next();
+			cur.render(batch);
+		}
+
 
 		// TITLE
 		font.draw(batch, "Coin Hunter - v0.1", 1, 15);
@@ -173,6 +201,7 @@ public class PlayScreen implements Screen {
 
 		}
 
+		
 		player.draw(batch);
 
 		batch.end();
